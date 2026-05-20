@@ -1,0 +1,230 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:#0f172a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* NAVBAR */
+
+.navbar{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px 80px;
+    position:fixed;
+    top:0;
+    z-index:1000;
+    background:rgba(15,23,42,0.85);
+    backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#22c55e;
+    letter-spacing:1px;
+}
+
+nav{
+    display:flex;
+    gap:35px;
+}
+
+nav a{
+    text-decoration:none;
+    color:white;
+    font-size:17px;
+    transition:0.3s;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0;
+    height:2px;
+    background:#22c55e;
+    transition:0.4s;
+}
+
+nav a:hover::after{
+    width:100%;
+}
+
+nav a:hover{
+    color:#22c55e;
+}
+
+/* HERO */
+
+.sensor-hero{
+    min-height:60vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:170px 20px 100px;
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.7),
+        rgba(15,23,42,0.9)
+    ),
+    url("../assets/images/hero.png");
+
+    background-size:cover;
+    background-position:center;
+}
+
+.sensor-hero h1{
+    font-size:75px;
+    margin-bottom:25px;
+    color:white;
+}
+
+.sensor-hero p{
+    font-size:24px;
+    color:#d1d5db;
+    max-width:800px;
+    line-height:1.8;
+}
+
+/* SENSORES */
+
+.sensors-section{
+    padding:110px 80px;
+    display:flex;
+    flex-direction:column;
+    gap:50px;
+    background:#111827;
+}
+
+.sensor-card-full{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    background:rgba(255,255,255,0.05);
+    border-radius:30px;
+    overflow:hidden;
+    transition:0.4s;
+    border:1px solid rgba(255,255,255,0.05);
+}
+
+.sensor-card-full:hover{
+    transform:translateY(-10px);
+    box-shadow:0px 0px 35px rgba(34,197,94,0.2);
+}
+
+.sensor-card-full img{
+    width:380px;
+    height:320px;
+    object-fit:cover;
+}
+
+.sensor-info{
+    padding:40px;
+}
+
+.sensor-info h2{
+    font-size:38px;
+    color:#22c55e;
+    margin-bottom:25px;
+}
+
+.sensor-info p{
+    font-size:21px;
+    line-height:1.9;
+    color:#d1d5db;
+    max-width:700px;
+}
+
+/* FOOTER */
+
+.footer{
+    background:#020617;
+    padding-top:50px;
+}
+
+.footer-bottom{
+    text-align:center;
+    padding:30px;
+    border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.footer-bottom p{
+    color:#94a3b8;
+    font-size:16px;
+    letter-spacing:1px;
+}
+
+/* RESPONSIVE */
+
+@media(max-width:1000px){
+
+    .sensor-card-full{
+        flex-direction:column;
+    }
+
+    .sensor-card-full img{
+        width:100%;
+        height:300px;
+    }
+
+    .sensor-info{
+        text-align:center;
+    }
+}
+
+@media(max-width:900px){
+
+    .navbar{
+        flex-direction:column;
+        padding:20px 25px;
+        gap:20px;
+    }
+
+    nav{
+        flex-wrap:wrap;
+        justify-content:center;
+        gap:18px;
+    }
+
+    .sensor-hero{
+        padding-top:220px;
+    }
+
+    .sensor-hero h1{
+        font-size:50px;
+    }
+
+    .sensor-hero p{
+        font-size:20px;
+    }
+
+    .sensors-section{
+        padding:80px 25px;
+    }
+
+    .sensor-info h2{
+        font-size:30px;
+    }
+
+    .sensor-info p{
+        font-size:18px;
+    }
+}
