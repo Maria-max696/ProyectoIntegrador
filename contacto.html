@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contacto | Escalones de Vida</title>
+  <meta name="description" content="Contacto del proyecto Escalones de Vida, Bogotá, Colombia.">
+  <meta name="theme-color" content="#0b1a17">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">Escalones de <b>Vida</b></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html">Inicio</a></li><li><a href="proyecto.html">Proyecto</a></li><li><a href="sensores.html">Sensores</a></li><li><a href="resultados.html">Resultados</a></li><li><a href="contacto.html" aria-current="page">Contacto</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenido">
+
+<section class="page-hero"><div class="wrap">
+  <h1>Contacto</h1>
+  <p>Escríbenos si quieres saber más del proyecto, de los sensores o de la agricultura urbana con IoT.</p>
+</div></section>
+
+<section class="section">
+  <div class="wrap contact">
+    <div>
+      <h2>Hablemos</h2>
+      <p class="lead" style="margin-bottom:0">El formulario abre tu programa de correo con el mensaje ya escrito.</p>
+      <ul class="info-list">
+        <li><span>Correo</span><a href="mailto:escalonesdevida@gmail.com">escalonesdevida@gmail.com</a></li>
+        <li><span>Ubicación</span>Bogotá, Colombia</li>
+        <li><span>Institución</span>Universidad de San Buenaventura, Tecnología en Automatización Industrial</li>
+      </ul>
+    </div>
+    <form id="contact-form" action="mailto:escalonesdevida@gmail.com" method="post" enctype="text/plain">
+      <label>Nombre completo<input type="text" name="nombre" autocomplete="name" required></label>
+      <label>Correo electrónico<input type="email" name="correo" autocomplete="email" required></label>
+      <label>Asunto<input type="text" name="asunto" required></label>
+      <label>Mensaje<textarea name="mensaje" rows="6" required></textarea></label>
+      <button class="btn primary" type="submit">Preparar el correo</button>
+      <p class="form-msg" id="form-msg" role="status"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h3>Escalones de Vida</h3>
+        <p>Escalera hidropónica NFT de cuatro niveles con ESP32 y sensores, pensada para cultivar en espacios urbanos pequeños.</p>
+      </div>
+      <div>
+        <h3>Páginas</h3>
+        <ul>
+          <li><a href="proyecto.html">Proyecto</a></li>
+          <li><a href="sensores.html">Sensores</a></li>
+          <li><a href="resultados.html">Resultados</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Código</h3>
+        <ul>
+          <li>Código de los nodos ESP32 en la carpeta <code>sensores</code> del repositorio</li>
+          <li>Informe técnico completo en la página del proyecto</li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">Universidad de San Buenaventura, Bogotá · Tecnología en Automatización Industrial · Laboratorio de IoT · 2026</p>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultados | Escalones de Vida</title>
+  <meta name="description" content="Resultados de calibración de los sensores del sistema hidropónico Escalones de Vida.">
+  <meta name="theme-color" content="#0b1a17">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">Escalones de <b>Vida</b></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html">Inicio</a></li><li><a href="proyecto.html">Proyecto</a></li><li><a href="sensores.html">Sensores</a></li><li><a href="resultados.html" aria-current="page">Resultados</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenido">
+
+<section class="page-hero"><div class="wrap">
+  <h1>Resultados y calibración</h1>
+  <p>Qué medimos, contra qué patrón y qué tan cerca quedó cada sensor.</p>
+</div></section>
+
+<section class="section">
+  <div class="wrap">
+    <p class="notice"><b>Resumen.</b> Cada sensor se probó con 35 mediciones frente a un patrón. Temperatura, pH, TDS y nivel quedaron dentro de la tolerancia definida. El caudalímetro y las celdas de carga siguen en evaluación experimental: el primero porque su error máximo supera la tolerancia, y las segundas porque falta verificar cada celda por separado.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <h2>Resultados por sensor</h2>
+    <p class="lead">Regresión lineal entre la lectura del sensor y el valor de referencia.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Sensor</th><th>Puntos</th><th>Pendiente</th><th>Intercepto</th><th>R²</th><th>Error máximo</th><th>Tolerancia</th><th>Estado</th></tr></thead>
+      <tbody>
+        <tr><td>Temperatura</td><td>35</td><td>1,0004</td><td>0,1153 °C</td><td>0,9999</td><td>0,40 °C</td><td>±0,5 °C</td><td><span class="tag done">Dentro de tolerancia</span></td></tr>
+        <tr><td>pH</td><td>35</td><td>0,9990</td><td>0,0175</td><td>0,9998</td><td>0,07 pH</td><td>±0,1 pH</td><td><span class="tag done">Dentro de tolerancia</span></td></tr>
+        <tr><td>TDS</td><td>35</td><td>1,0036</td><td>−1,9588 ppm</td><td>0,9995</td><td>13 ppm</td><td>±15 ppm</td><td><span class="tag done">Dentro de tolerancia</span></td></tr>
+        <tr><td>Nivel ultrasónico</td><td>35</td><td>1,0026</td><td>−0,1837 cm</td><td>0,9999</td><td>0,8 cm</td><td>±1 cm</td><td><span class="tag done">Dentro de tolerancia</span></td></tr>
+        <tr><td>Caudal YF-S201</td><td>35</td><td>0,9658</td><td>0,0547 L/min</td><td>0,9978</td><td>0,46 L/min</td><td>±0,1 L/min</td><td><span class="tag wip">En evaluación</span></td></tr>
+        <tr><td>Celdas de carga</td><td>35</td><td>1,0005</td><td>−0,3527 g</td><td>0,999996</td><td>1,2 g</td><td>±2 g</td><td><span class="tag wip">En evaluación</span></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2>Curvas de calibración</h2>
+    <p class="lead">Cada gráfica enfrenta la lectura del sensor con el valor de referencia. Si el ajuste fuera perfecto, todos los puntos caerían sobre la recta.</p>
+    <div class="gallery">
+<figure><img src="assets/images/cal-temperatura.png" width="419" height="248" alt="Temperatura" loading="lazy"><figcaption><b>Temperatura</b>DS18B20 contra una PT100 de referencia.</figcaption></figure><figure><img src="assets/images/cal-ph.png" width="385" height="225" alt="pH" loading="lazy"><figcaption><b>pH</b>Sonda contra soluciones buffer de referencia.</figcaption></figure><figure><img src="assets/images/cal-tds.png" width="478" height="294" alt="TDS" loading="lazy"><figcaption><b>TDS</b>Sensor contra soluciones de referencia, hasta cerca de 1000 ppm.</figcaption></figure><figure><img src="assets/images/cal-nivel.png" width="479" height="283" alt="Nivel ultrasónico" loading="lazy"><figcaption><b>Nivel ultrasónico</b>Distancia medida contra distancia de referencia, hasta cerca de 146 cm.</figcaption></figure><figure><img src="assets/images/cal-caudal.png" width="479" height="286" alt="Caudal" loading="lazy"><figcaption><b>Caudal</b>Sensor contra el método volumétrico, hasta 8 L/min. Hay dispersión a caudales altos.</figcaption></figure><figure><img src="assets/images/cal-celdas.png" width="472" height="287" alt="Celdas de carga" loading="lazy"><figcaption><b>Celdas de carga</b>Peso medido contra masas de referencia, hasta cerca de 970 g.</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Por qué el caudal y las celdas siguen en evaluación</h2>
+    <div class="prose">
+      <p>Un R² alto no basta para declarar un sensor calibrado. En el caudalímetro la recta se ajusta bien, pero en algunos puntos el error llega a 0,46 L/min, casi cinco veces la tolerancia de ±0,1 L/min. Hay que repetir el método volumétrico, revisar el factor de pulsos, controlar el tiempo de recolección y probarlo con la bomba y las mangueras reales de la escalera.</p>
+      <p>En las celdas de carga el error máximo de 1,2 g cabe en la tolerancia de ±2 g, pero la regresión es conjunta. Falta comprobar cada celda por separado, su tara, su repetibilidad y que las lecturas se mantengan estables al reiniciar el sistema.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2>Consumo eléctrico del módulo de control</h2>
+    <p class="lead">Estimación con valores típicos de las hojas de datos. No es una medición y no incluye la bomba ni el calentador.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Componente</th><th>Consumo aproximado</th></tr></thead>
+      <tbody>
+        <tr><td>ESP32</td><td>80 mA</td></tr>
+        <tr><td>Sensor de pH</td><td>5 mA</td></tr>
+        <tr><td>Sensor TDS</td><td>3 mA</td></tr>
+        <tr><td>Sensor de temperatura DS18B20</td><td>1 mA</td></tr>
+        <tr><td>Sensor ultrasónico</td><td>2 mA</td></tr>
+        <tr><td>Otros (conexiones y señalización)</td><td>10 mA</td></tr>
+        <tr><th>Total estimado</th><th>unos 101 mA a 5 V, cerca de 0,5 W</th></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Qué sigue</h2>
+    <p class="lead">Las pruebas que faltan para cerrar el prototipo.</p>
+    <ol class="steps">
+      <li><h3>Caudal</h3><p>Repetir el método volumétrico y bajar el error máximo por debajo de la tolerancia.</p></li>
+      <li><h3>Celdas de carga</h3><p>Verificar cada celda por separado, con tara y repetibilidad.</p></li>
+      <li><h3>Ecuaciones en el firmware</h3><p>Confirmar que las ecuaciones de calibración estén cargadas en cada sensor.</p></li>
+      <li><h3>Cultivo real</h3><p>Validar el sistema completo con solución nutritiva y lechuga.</p></li>
+    </ol>
+    <p class="lead" style="margin-top:36px;margin-bottom:0">Referencia sobre el agua: la literatura reporta ahorros de hasta 90 % en sistemas hidropónicos recirculados frente al cultivo en suelo (FAO, 2018). Es un dato de referencia, no un resultado de este prototipo.</p>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h3>Escalones de Vida</h3>
+        <p>Escalera hidropónica NFT de cuatro niveles con ESP32 y sensores, pensada para cultivar en espacios urbanos pequeños.</p>
+      </div>
+      <div>
+        <h3>Páginas</h3>
+        <ul>
+          <li><a href="proyecto.html">Proyecto</a></li>
+          <li><a href="sensores.html">Sensores</a></li>
+          <li><a href="resultados.html">Resultados</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Código</h3>
+        <ul>
+          <li>Código de los nodos ESP32 en la carpeta <code>sensores</code> del repositorio</li>
+          <li>Informe técnico completo en la página del proyecto</li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">Universidad de San Buenaventura, Bogotá · Tecnología en Automatización Industrial · Laboratorio de IoT · 2026</p>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

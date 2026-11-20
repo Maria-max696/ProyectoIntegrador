@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proyecto | Escalones de Vida</title>
+  <meta name="description" content="Qué es Escalones de Vida, cómo avanza su desarrollo y qué protecciones tiene el sistema.">
+  <meta name="theme-color" content="#0b1a17">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">Escalones de <b>Vida</b></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html">Inicio</a></li><li><a href="proyecto.html" aria-current="page">Proyecto</a></li><li><a href="sensores.html">Sensores</a></li><li><a href="resultados.html">Resultados</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenido">
+
+<section class="page-hero"><div class="wrap">
+  <h1>El proyecto</h1>
+  <p>Un sistema hidropónico automatizado para producir lechuga en balcones, terrazas y salones de clase.</p>
+</div></section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="panels">
+      <div class="panel"><h3>Video del prototipo</h3><p>Recorrido por la escalera, los sensores y la automatización.</p><a class="btn primary" href="https://www.youtube.com/watch?v=OsrJGv-I_4M" target="_blank" rel="noopener">Ver el video</a></div>
+      <div class="panel"><h3>Informe técnico</h3><p>Metodología, sensores, calibración y análisis del proyecto.</p><a class="btn ghost" href="assets/docs/Escalones_de_Vida_Informe.pdf" target="_blank" rel="noopener">Abrir el informe (PDF)</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <div class="prose">
+      <h2>De qué trata</h2>
+      <p>Escalones de Vida combina hidroponía NFT, sensores y dos nodos ESP32 para cuidar la solución nutritiva de un cultivo de lechuga. La estructura tipo escalera aprovecha espacios pequeños, y la solución recircula por los cuatro niveles hasta volver al tanque.</p>
+      <p>El proyecto nace de un problema concreto: cuando el pH, la concentración de nutrientes o la temperatura se salen de rango, el cultivo se resiente y nadie lo nota a tiempo. La escalera mide esas variables, las registra y, poco a poco, aprende a corregirlas.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Problema y respuesta</h2>
+    <p class="lead">Cada dificultad del cultivo manual tiene una pieza del sistema que la atiende.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Problema</th><th>Respuesta en el prototipo</th></tr></thead>
+      <tbody>
+        <tr><td>Inestabilidad fisicoquímica de la solución</td><td>Sensores de pH y TDS con compensación por temperatura</td></tr>
+        <tr><td>Variación térmica entre niveles</td><td>Temperatura medida en los cuatro niveles y en el tanque</td></tr>
+        <tr><td>Sobredosificación de nutrientes</td><td>Dosificación asistida por peso con celda de carga (en desarrollo)</td></tr>
+        <tr><td>Falta de histórico</td><td>Registro de lecturas en un servidor Node.js con base de datos MySQL</td></tr>
+        <tr><td>Bomba que falla sin que nadie se entere</td><td>Dos caudalímetros que comparan lo esperado con lo real</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2>Cómo avanza el desarrollo</h2>
+    <p class="lead">Cada etapa depende de la anterior.</p>
+    <ol class="timeline">
+      <li class="done"><h3>Investigación <span class="tag done">Hecho</span></h3><p>Hidroponía NFT, agricultura urbana, IoT e instrumentación.</p></li>
+      <li class="done"><h3>Estructura y etapa de potencia <span class="tag done">Hecho</span></h3><p>Escalera de PVC de cuatro niveles, tanque de recirculación y bomba de 12 V conmutada con un TIP31C.</p></li>
+      <li class="done"><h3>Arquitectura IoT <span class="tag done">Hecho</span></h3><p>Dos nodos ESP32 conectados por UART, servidor Node.js, base de datos MySQL y panel web con gráficas.</p></li>
+      <li class="wip"><h3>Calibración <span class="tag wip">En curso</span></h3><p>Temperatura, pH, TDS y nivel quedaron dentro de tolerancia. Caudal y celdas de carga siguen en evaluación experimental.</p></li>
+      <li><h3>Calentador y dosificador <span class="tag todo">Pendiente</span></h3><p>Control de temperatura con histéresis y dosificación de nutrientes por gramaje, con compensación de la inercia del material.</p></li>
+      <li><h3>Validación con cultivo <span class="tag todo">Pendiente</span></h3><p>Pruebas completas con solución nutritiva y lechuga, con alarmas y protecciones.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Protecciones previstas</h2>
+    <p class="lead">Reglas de seguridad que se implementarán en el firmware para no dañar el cultivo ni el equipo. Hoy el sistema monitorea; estos límites son valores de diseño por validar.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Situación</th><th>Qué hará el sistema</th></tr></thead>
+      <tbody>
+        <tr><td>Nivel del tanque por debajo de 15 %</td><td>Apaga la bomba y el calentador para que no trabajen en seco</td></tr>
+        <tr><td>Bomba encendida y caudal menor a 0,5 L/min</td><td>Detiene la bomba y deja una alarma activa hasta que alguien la reinicie</td></tr>
+        <tr><td>Los dos caudalímetros difieren más de 30 %</td><td>Avisa de una posible fuga</td></tr>
+        <tr><td>Temperatura del tanque por encima de 28 °C</td><td>Apaga el calentador</td></tr>
+        <tr><td>Lectura de pH fuera de 0 a 14</td><td>La marca como inválida en lugar de mostrar un valor falso</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2>Tecnologías</h2>
+    <p class="lead">Lo que usamos y para qué.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Tecnología</th><th>Uso en el proyecto</th></tr></thead>
+      <tbody>
+        <tr><td>Nodo ESP32 B</td><td>Adquiere temperatura, pH, TDS y nivel, y envía los datos en JSON al nodo A por UART</td></tr>
+        <tr><td>Nodo ESP32 A</td><td>Integra caudal y peso, acciona la bomba y envía todo al servidor por WiFi</td></tr>
+        <tr><td>TIP31C, resistencia de 330 Ω y diodo 1N4007</td><td>Etapa de potencia que enciende la bomba de 12 V desde un pin de la ESP32</td></tr>
+        <tr><td>Firmware en C++ (Arduino IDE)</td><td>Lectura, filtrado y envío de datos</td></tr>
+        <tr><td>Node.js y MySQL</td><td>Recepción de los mensajes JSON, almacenamiento de registros y gráficas web</td></tr>
+        <tr><td>HX711 y celdas de carga</td><td>Peso del nutriente y de la solución</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Lo que sigue</h2>
+    <div class="panels">
+      <div class="panel"><h3>Control PID</h3><p>Regular de forma automática el pH y la concentración de nutrientes, no solo medirlos.</p></div>
+      <div class="panel"><h3>Panel y aplicación móvil</h3><p>Alertas en tiempo real y consulta del cultivo desde el celular.</p></div>
+      <div class="panel"><h3>Dosificador de precisión</h3><p>Mecanismo de tornillo sinfín fabricado con impresión 3D, con la celda de carga como realimentación.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h3>Escalones de Vida</h3>
+        <p>Escalera hidropónica NFT de cuatro niveles con ESP32 y sensores, pensada para cultivar en espacios urbanos pequeños.</p>
+      </div>
+      <div>
+        <h3>Páginas</h3>
+        <ul>
+          <li><a href="proyecto.html">Proyecto</a></li>
+          <li><a href="sensores.html">Sensores</a></li>
+          <li><a href="resultados.html">Resultados</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Código</h3>
+        <ul>
+          <li>Código de los nodos ESP32 en la carpeta <code>sensores</code> del repositorio</li>
+          <li>Informe técnico completo en la página del proyecto</li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">Universidad de San Buenaventura, Bogotá · Tecnología en Automatización Industrial · Laboratorio de IoT · 2026</p>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

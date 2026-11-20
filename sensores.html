@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sensores | Escalones de Vida</title>
+  <meta name="description" content="Sensores, bomba y nodos ESP32 del sistema hidropónico Escalones de Vida, con su calibración.">
+  <meta name="theme-color" content="#0b1a17">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">Escalones de <b>Vida</b></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html">Inicio</a></li><li><a href="proyecto.html">Proyecto</a></li><li><a href="sensores.html" aria-current="page">Sensores</a></li><li><a href="resultados.html">Resultados</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenido">
+<section class="page-hero"><div class="wrap"><h1>Sensores y actuadores</h1><p>Seis variables medidas y una bomba controlada, repartidas en dos nodos ESP32. Aquí está qué hace cada pieza y cómo se calibró.</p></div></section>
+<section class="section">
+  <div class="wrap">
+    <h2>Dos nodos, un sistema</h2>
+    <p class="lead">El nodo B mide la solución y envía los datos en JSON por UART al nodo A. El nodo A suma caudal y peso, acciona la bomba y manda todo al servidor por WiFi.</p>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Nodo</th><th>Variable</th><th>Componente</th><th>Pin</th></tr></thead>
+      <tbody>
+        <tr><td>ESP32 B (campo)</td><td>Temperatura</td><td>DS18B20 con pull-up de 4,7 kΩ</td><td>GPIO 4</td></tr>
+        <tr><td>ESP32 B (campo)</td><td>Nivel</td><td>Ultrasónico RCWL-1655</td><td>TRIG GPIO 5, ECHO GPIO 18</td></tr>
+        <tr><td>ESP32 B (campo)</td><td>pH</td><td>GAOHOU PH0-14</td><td>GPIO 35</td></tr>
+        <tr><td>ESP32 B (campo)</td><td>TDS</td><td>Gravity TDS V1.0</td><td>GPIO 34</td></tr>
+        <tr><td>ESP32 A (receptor)</td><td>Caudal</td><td>YF-S201, dos unidades</td><td>GPIO 25 y GPIO 26</td></tr>
+        <tr><td>ESP32 A (receptor)</td><td>Peso</td><td>Tres celdas de carga con HX711</td><td>DT y SCK: 22 y 23, 19 y 21, 27 y 14</td></tr>
+        <tr><td>ESP32 A (receptor)</td><td>Bomba</td><td>TIP31C que conmuta la bomba de 12 V</td><td>GPIO 33</td></tr>
+        <tr><td>Entre nodos</td><td>Comunicación</td><td>UART2</td><td>RX en GPIO 16 del nodo A</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2>Cada sensor</h2>
+<article class="sensor">
+  <div class="photo"><img src="assets/images/temperatura.jpg" alt="Sensor de temperatura DS18B20 con cable" loading="lazy"></div>
+  <div>
+    <h3>Temperatura, DS18B20</h3>
+    <p class="what">Mide la temperatura del agua en distintos puntos de la escalera y se usa para compensar la lectura del TDS.</p>
+    <dl><dt>Conexión</dt><dd>Nodo B, GPIO 4, protocolo 1-Wire</dd><dt>Calibración</dt><dd>Contra una PT100 de referencia: 35 puntos, R² de 0,9999 y error máximo de 0,40 °C (tolerancia de ±0,5 °C). Dentro de tolerancia.</dd></dl>
+  </div>
+</article><article class="sensor">
+  <div class="photo"><img src="assets/images/ph.jpg" alt="Electrodo de pH con conector BNC" loading="lazy"></div>
+  <div>
+    <h3>pH, GAOHOU PH0-14</h3>
+    <p class="what">Indica qué tan ácida o alcalina es la solución. Para lechuga en NFT el objetivo está entre 5,5 y 6,5.</p>
+    <dl><dt>Conexión</dt><dd>Nodo B, GPIO 35, entrada analógica</dd><dt>Calibración</dt><dd>Con soluciones buffer de referencia: 35 puntos, R² de 0,9998 y error máximo de 0,07 pH (tolerancia de ±0,1). Dentro de tolerancia.</dd></dl>
+  </div>
+</article><article class="sensor">
+  <div class="photo"><img src="assets/images/tds.jpg" alt="Sensor TDS con sonda de dos electrodos" loading="lazy"></div>
+  <div>
+    <h3>Sólidos disueltos, Gravity TDS</h3>
+    <p class="what">Estima la concentración de nutrientes a partir de la conductividad del agua, en partes por millón.</p>
+    <dl><dt>Conexión</dt><dd>Nodo B, GPIO 34, entrada analógica</dd><dt>Calibración</dt><dd>Contra soluciones de referencia: 35 puntos, R² de 0,9995 y error máximo de 13 ppm (tolerancia de ±15 ppm). Dentro de tolerancia.</dd></dl>
+  </div>
+</article><article class="sensor">
+  <div class="photo"><img src="assets/images/ultrasonico.jpg" alt="Sensor ultrasónico impermeable RCWL-1655" loading="lazy"></div>
+  <div>
+    <h3>Nivel, RCWL-1655</h3>
+    <p class="what">Mide la distancia hasta la superficie del agua para saber cuánto hay en el tanque.</p>
+    <dl><dt>Conexión</dt><dd>Nodo B, TRIG en GPIO 5 y ECHO en GPIO 18, con divisor de tensión para bajar de 5 V a 3,3 V</dd><dt>Calibración</dt><dd>Contra distancias medidas físicamente: 35 puntos, R² de 0,9999 y error máximo de 0,8 cm (tolerancia de ±1 cm). Dentro de tolerancia.</dd></dl>
+  </div>
+</article><article class="sensor">
+  <div class="photo"><span>YF-S201 ×2</span></div>
+  <div>
+    <h3>Caudal, YF-S201</h3>
+    <p class="what">Cuenta los giros de una turbina para saber cuántos litros por minuto circulan. Con dos unidades se pueden comparar el caudal de entrada y el de salida.</p>
+    <dl><dt>Conexión</dt><dd>Nodo A, GPIO 25 y GPIO 26, lectura por interrupciones para no perder pulsos</dd><dt>Calibración</dt><dd>Método volumétrico: 35 puntos y R² de 0,9978, pero el error máximo fue de 0,46 L/min, mayor que la tolerancia de ±0,1 L/min. En evaluación experimental.</dd></dl>
+  </div>
+</article><article class="sensor">
+  <div class="photo"><span>HX711</span></div>
+  <div>
+    <h3>Peso, celdas de carga con HX711</h3>
+    <p class="what">Pesa el recipiente del nutriente y la solución. Es la base para dosificar por gramaje.</p>
+    <dl><dt>Conexión</dt><dd>Nodo A, tres módulos HX711 con pines DT y SCK propios</dd><dt>Calibración</dt><dd>Contra masas de referencia: 35 puntos, R² de 0,999996 y error máximo de 1,2 g (tolerancia de ±2 g). En evaluación hasta verificar cada celda por separado.</dd></dl>
+  </div>
+</article><article class="sensor">
+  <div class="photo"><span>TIP31C</span></div>
+  <div>
+    <h3>Bomba de 12 V, etapa de potencia</h3>
+    <p class="what">Un pin de la ESP32 no puede mover una bomba. El transistor TIP31C actúa como interruptor: con el pin en alto la bomba enciende y con el pin en bajo se apaga. Un diodo 1N4007 protege el circuito de los picos al apagar el motor.</p>
+    <dl><dt>Conexión</dt><dd>Nodo A, GPIO 33 a la base del TIP31C a través de una resistencia de 330 Ω</dd><dt>Calibración</dt><dd>No aplica. Se comprueba que el caudal medido coincida con el estado de la bomba.</dd></dl>
+  </div>
+</article>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h3>Escalones de Vida</h3>
+        <p>Escalera hidropónica NFT de cuatro niveles con ESP32 y sensores, pensada para cultivar en espacios urbanos pequeños.</p>
+      </div>
+      <div>
+        <h3>Páginas</h3>
+        <ul>
+          <li><a href="proyecto.html">Proyecto</a></li>
+          <li><a href="sensores.html">Sensores</a></li>
+          <li><a href="resultados.html">Resultados</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Código</h3>
+        <ul>
+          <li>Código de los nodos ESP32 en la carpeta <code>sensores</code> del repositorio</li>
+          <li>Informe técnico completo en la página del proyecto</li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">Universidad de San Buenaventura, Bogotá · Tecnología en Automatización Industrial · Laboratorio de IoT · 2026</p>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>

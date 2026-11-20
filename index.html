@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escalones de Vida | Escalera hidropónica con ESP32</title>
+  <meta name="description" content="Escalera hidropónica NFT de cuatro niveles con ESP32, sensores y panel web para agricultura urbana.">
+  <meta name="theme-color" content="#0b1a17">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<header class="site-header">
+  <div class="bar">
+    <a class="brand" href="index.html">Escalones de <b>Vida</b></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menú</button>
+    <nav class="site-nav" id="site-nav" aria-label="Principal"><ul><li><a href="index.html" aria-current="page">Inicio</a></li><li><a href="proyecto.html">Proyecto</a></li><li><a href="sensores.html">Sensores</a></li><li><a href="resultados.html">Resultados</a></li><li><a href="contacto.html">Contacto</a></li></ul></nav>
+  </div>
+</header>
+<main id="contenido">
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Cultivar lechuga en una escalera, con datos en tiempo real</h1>
+      <p class="sub">Escalones de Vida es un sistema hidropónico NFT de cuatro niveles. Dos nodos ESP32 miden la solución nutritiva, mueven la bomba y envían los datos a un panel web.</p>
+      <div class="btn-row">
+        <a class="btn primary" href="proyecto.html">Ver el proyecto</a>
+        <a class="btn ghost" href="resultados.html">Ver resultados</a>
+      </div>
+    </div>
+    <div class="diagram">
+      <svg viewBox="0 -10 600 480" role="img" aria-labelledby="dg-t dg-d" xmlns="http://www.w3.org/2000/svg"><title id="dg-t">Esquema de la escalera hidropónica</title><desc id="dg-d">Cuatro canales NFT escalonados con plantas. Una bomba en el tanque sube la solución por la izquierda, el agua recorre cada canal y vuelve al tanque por la derecha. Los puntos amarillos marcan los sensores.</desc><path d="M420 415 H48 V66" fill="none" stroke="#3b8f74" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M48 66 H70" stroke="#3b8f74" stroke-width="6" stroke-linecap="round"/><rect x="70" y="56" width="300" height="20" rx="10" fill="#163a31" stroke="#3b8f74" stroke-width="2"/><line class="flow" x1="80" y1="66" x2="360" y2="66" stroke="#7cc4d8" stroke-width="3" stroke-linecap="round"/><line x1="104" y1="56" x2="104" y2="50" stroke="#2fa968" stroke-width="2"/><circle cx="104" cy="43" r="8" fill="#52d68a"/><line x1="162" y1="56" x2="162" y2="50" stroke="#2fa968" stroke-width="2"/><circle cx="162" cy="43" r="7" fill="#52d68a"/><line x1="220" y1="56" x2="220" y2="50" stroke="#2fa968" stroke-width="2"/><circle cx="220" cy="43" r="8" fill="#52d68a"/><line x1="278" y1="56" x2="278" y2="50" stroke="#2fa968" stroke-width="2"/><circle cx="278" cy="43" r="7" fill="#52d68a"/><line x1="336" y1="56" x2="336" y2="50" stroke="#2fa968" stroke-width="2"/><circle cx="336" cy="43" r="8" fill="#52d68a"/><path d="M370 66 H540" stroke="#3b8f74" stroke-width="6" stroke-linecap="round"/><circle cx="220" cy="66" r="6" fill="#f2c14e"/><path d="M48 146 H115" stroke="#3b8f74" stroke-width="6" stroke-linecap="round"/><rect x="115" y="136" width="300" height="20" rx="10" fill="#163a31" stroke="#3b8f74" stroke-width="2"/><line class="flow" x1="125" y1="146" x2="405" y2="146" stroke="#7cc4d8" stroke-width="3" stroke-linecap="round"/><line x1="149" y1="136" x2="149" y2="130" stroke="#2fa968" stroke-width="2"/><circle cx="149" cy="123" r="8" fill="#52d68a"/><line x1="207" y1="136" x2="207" y2="130" stroke="#2fa968" stroke-width="2"/><circle cx="207" cy="123" r="7" fill="#52d68a"/><line x1="265" y1="136" x2="265" y2="130" stroke="#2fa968" stroke-width="2"/><circle cx="265" cy="123" r="8" fill="#52d68a"/><line x1="323" y1="136" x2="323" y2="130" stroke="#2fa968" stroke-width="2"/><circle cx="323" cy="123" r="7" fill="#52d68a"/><line x1="381" y1="136" x2="381" y2="130" stroke="#2fa968" stroke-width="2"/><circle cx="381" cy="123" r="8" fill="#52d68a"/><path d="M415 146 H540" stroke="#3b8f74" stroke-width="6" stroke-linecap="round"/><circle cx="265" cy="146" r="6" fill="#f2c14e"/><path d="M48 226 H160" stroke="#3b8f74" stroke-width="6" stroke-linecap="round"/><rect x="160" y="216" width="300" height="20" rx="10" fill="#163a31" stroke="#3b8f74" stroke-width="2"/><line class="flow" x1="170" y1="226" x2="450" y2="226" stroke="#7cc4d8" stroke-width="3" stroke-linecap="round"/><line x1="194" y1="216" x2="194" y2="210" stroke="#2fa968" stroke-width="2"/><circle cx="194" cy="203" r="8" fill="#52d68a"/><line x1="252" y1="216" x2="252" y2="210" stroke="#2fa968" stroke-width="2"/><circle cx="252" cy="203" r="7" fill="#52d68a"/><line x1="310" y1="216" x2="310" y2="210" stroke="#2fa968" stroke-width="2"/><circle cx="310" cy="203" r="8" fill="#52d68a"/><line x1="368" y1="216" x2="368" y2="210" stroke="#2fa968" stroke-width="2"/><circle cx="368" cy="203" r="7" fill="#52d68a"/><line x1="426" y1="216" x2="426" y2="210" stroke="#2fa968" stroke-width="2"/><circle cx="426" cy="203" r="8" fill="#52d68a"/><path d="M460 226 H540" stroke="#3b8f74" stroke-width="6" stroke-linecap="round"/><circle cx="310" cy="226" r="6" fill="#f2c14e"/><path d="M48 306 H205" stroke="#3b8f74" stroke-width="6" stroke-linecap="round"/><rect x="205" y="296" width="300" height="20" rx="10" fill="#163a31" stroke="#3b8f74" stroke-width="2"/><line class="flow" x1="215" y1="306" x2="495" y2="306" stroke="#7cc4d8" stroke-width="3" stroke-linecap="round"/><line x1="239" y1="296" x2="239" y2="290" stroke="#2fa968" stroke-width="2"/><circle cx="239" cy="283" r="8" fill="#52d68a"/><line x1="297" y1="296" x2="297" y2="290" stroke="#2fa968" stroke-width="2"/><circle cx="297" cy="283" r="7" fill="#52d68a"/><line x1="355" y1="296" x2="355" y2="290" stroke="#2fa968" stroke-width="2"/><circle cx="355" cy="283" r="8" fill="#52d68a"/><line x1="413" y1="296" x2="413" y2="290" stroke="#2fa968" stroke-width="2"/><circle cx="413" cy="283" r="7" fill="#52d68a"/><line x1="471" y1="296" x2="471" y2="290" stroke="#2fa968" stroke-width="2"/><circle cx="471" cy="283" r="8" fill="#52d68a"/><path d="M505 306 H540" stroke="#3b8f74" stroke-width="6" stroke-linecap="round"/><circle cx="355" cy="306" r="6" fill="#f2c14e"/><path d="M540 66 V350" stroke="#3b8f74" stroke-width="6" stroke-linecap="round"/><rect x="380" y="350" width="190" height="92" rx="10" fill="#0f2a24" stroke="#3b8f74" stroke-width="2"/><rect x="383" y="382" width="184" height="57" rx="8" fill="rgba(124,196,216,.35)"/><circle cx="420" cy="415" r="12" fill="#25483e" stroke="#52d68a" stroke-width="2"/><circle cx="480" cy="410" r="6" fill="#f2c14e"/><circle cx="515" cy="410" r="6" fill="#f2c14e"/><circle cx="440" cy="334" r="6" fill="#f2c14e"/><circle cx="48" cy="210" r="6" fill="#f2c14e"/><circle cx="470" cy="458" r="6" fill="#f2c14e"/><text font-family="system-ui,Arial,sans-serif" font-size="13" fill="#f2c14e" x="62" y="214">Caudal</text><text font-family="system-ui,Arial,sans-serif" font-size="13" fill="#f2c14e" x="452" y="338">Nivel</text><text font-family="system-ui,Arial,sans-serif" font-size="13" fill="#f2c14e" x="480" y="402" text-anchor="middle">pH</text><text font-family="system-ui,Arial,sans-serif" font-size="13" fill="#f2c14e" x="515" y="402" text-anchor="middle">TDS</text><text font-family="system-ui,Arial,sans-serif" font-size="13" fill="#f2c14e" x="483" y="463">Peso</text><text font-family="system-ui,Arial,sans-serif" font-size="13" fill="#f2c14e" x="70" y="20">Temperatura en cada nivel</text></svg>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>El prototipo hoy</h2>
+    <p class="lead">Lo que ya está construido y funcionando en la escalera.</p>
+    <dl class="facts">
+      <div><dt>4</dt><dd>niveles de cultivo NFT con tanque de recirculación</dd></div>
+      <div><dt>6</dt><dd>variables medidas: temperatura, pH, TDS, nivel, caudal y peso</dd></div>
+      <div><dt>2</dt><dd>nodos ESP32 que se reparten los sensores y se comunican por UART</dd></div>
+      <div><dt>35</dt><dd>mediciones por sensor en las pruebas de calibración</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2>Cómo funciona</h2>
+    <p class="lead">El sistema repite este ciclo cada pocos segundos.</p>
+    <ol class="steps">
+      <li><h3>Mide</h3><p>Los sensores leen temperatura, pH, sólidos disueltos, nivel del tanque, caudal y peso.</p></li>
+      <li><h3>Procesa</h3><p>Los nodos ESP32 filtran las lecturas y las organizan en mensajes JSON. El nodo receptor las concentra y las envía al servidor.</p></li>
+      <li><h3>Actúa</h3><p>Enciende y apaga la bomba de 12 V con una etapa de potencia. Calentador y dosificador de nutrientes se suman en la siguiente fase.</p></li>
+      <li><h3>Registra</h3><p>Un servidor Node.js recibe los datos, los guarda en MySQL y los muestra en gráficas dentro del panel web.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <img src="assets/images/hero.jpg" width="1600" height="854" alt="Cultivo hidropónico de lechuga con sensores" loading="lazy">
+    <div class="prose">
+      <h2>Por qué una escalera</h2>
+      <p>En una ciudad hay poco suelo y mucha pared. Apilar los canales NFT en cuatro niveles multiplica la superficie de cultivo sin ocupar más piso, y la solución nutritiva se recircula en lugar de perderse. La literatura reporta ahorros de agua de hasta 90 % frente al cultivo en suelo (FAO, 2018).</p>
+      <p>Medir no basta: lo que queremos es que la escalera se mantenga estable sola. Hoy el sistema mide y registra; el siguiente paso es que también actúe.</p>
+      <p style="margin-top:24px"><a class="btn primary" href="proyecto.html">Conocer el proyecto</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="wrap">
+    <h2>Dónde vamos</h2>
+    <p class="lead">Estado real del prototipo, sin adelantarnos.</p>
+    <div class="board">
+      <div class="col"><h3><span class="dot done"></span>Hecho</h3>
+        <ul>
+          <li>Estructura de PVC de cuatro niveles y tanque</li>
+          <li>Dos nodos ESP32 con seis variables instaladas</li>
+          <li>Bomba de 12 V con etapa de potencia TIP31C</li>
+          <li>Servidor Node.js, base de datos MySQL y gráficas web</li>
+          <li>Temperatura, pH, TDS y nivel calibrados dentro de tolerancia</li>
+        </ul></div>
+      <div class="col"><h3><span class="dot wip"></span>En curso</h3>
+        <ul>
+          <li>Evaluación del caudalímetro: el error máximo aún supera la tolerancia</li>
+          <li>Verificación individual de las tres celdas de carga</li>
+          <li>Confirmar que las ecuaciones de calibración estén en el firmware</li>
+        </ul></div>
+      <div class="col"><h3><span class="dot todo"></span>Pendiente</h3>
+        <ul>
+          <li>Calentador con control on-off e histéresis</li>
+          <li>Dosificador de nutrientes por gramaje con celda de carga</li>
+          <li>Validación completa con solución nutritiva y cultivo de lechuga</li>
+        </ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <h2>Equipo</h2>
+    <div class="team">
+      <article class="person"><img src="assets/images/equipo1.jpg" width="961" height="1280" alt="Integrante del equipo de desarrollo tecnológico" loading="lazy"><div><h3>Desarrollo tecnológico</h3><p>Programación de la ESP32, integración de sensores y automatización del sistema.</p></div></article>
+      <article class="person"><img src="assets/images/equipo2.jpg" width="262" height="336" alt="Integrante del equipo de investigación y diseño" loading="lazy"><div><h3>Investigación y diseño</h3><p>Diseño experimental, documentación técnica y validación de resultados.</p></div></article>
+    </div>
+    <p class="credits">María Paula Galvis Orjuela y Andrés Santiago Rachen Papamija · Docente: Jhonatan Paolo Tovar Soto<br>Tecnología en Automatización Industrial, Universidad de San Buenaventura, Bogotá</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="wrap">
+    <div class="cta">
+      <h2>Mira los sensores y las pruebas</h2>
+      <p>Qué mide cada sensor, en qué pin está conectado y cómo se calibra.</p>
+      <a class="btn primary" href="sensores.html">Ver sensores</a>
+    </div>
+  </div>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <h3>Escalones de Vida</h3>
+        <p>Escalera hidropónica NFT de cuatro niveles con ESP32 y sensores, pensada para cultivar en espacios urbanos pequeños.</p>
+      </div>
+      <div>
+        <h3>Páginas</h3>
+        <ul>
+          <li><a href="proyecto.html">Proyecto</a></li>
+          <li><a href="sensores.html">Sensores</a></li>
+          <li><a href="resultados.html">Resultados</a></li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Código</h3>
+        <ul>
+          <li>Código de los nodos ESP32 en la carpeta <code>sensores</code> del repositorio</li>
+          <li>Informe técnico completo en la página del proyecto</li>
+        </ul>
+      </div>
+    </div>
+    <p class="legal">Universidad de San Buenaventura, Bogotá · Tecnología en Automatización Industrial · Laboratorio de IoT · 2026</p>
+  </div>
+</footer>
+<script src="js/site.js"></script>
+</body>
+</html>
